@@ -5,7 +5,13 @@ import secondImg from "../assets/crew/image-mark-shuttleworth.png";
 import thirdImg from "../assets/crew/image-victor-glover.png";
 import fourthImg from "../assets/crew/image-anousheh-ansari.png";
 
-const crewData = await getCrewData();
+//const crewData = await getCrewData();
+let crewData;
+getCrewData().then((result) => {
+  crewData = result
+}).catch((error) => {
+  alert(error.message)
+})
 
 const crewImgPath = {
   1: firstImg,
@@ -17,7 +23,7 @@ const crewImgPath = {
 function CrewMember() {
   const params = useParams();
 
-  const filteredCrew = crewData.filter((crew) => crew.id === params.id);
+  const filteredCrew = crewData?.filter((crew) => crew.id === params.id);
 
   const crewMember = filteredCrew[0];
 

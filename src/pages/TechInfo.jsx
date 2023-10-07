@@ -21,7 +21,14 @@ const imagePathDesktop = {
   3: spaceportdesktop,
 };
 
-const techData = await getTechData();
+//const techData = await getTechData();
+
+let techData;
+getTechData().then((result) => {
+  techData = result
+}).catch((error) => {
+  alert(error.message)
+})
 
 function TechInfo() {
   const params = useParams();

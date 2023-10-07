@@ -14,11 +14,18 @@ const imagePathMap = {
   titan: titanImage,
 };
 
-const planets = await getPlanetsData();
+//const planets = await getPlanetsData();
+
+let planets;
+getPlanetsData().then((result) => {
+  planets = result
+}).catch((error) => {
+  alert(error.message)
+})
 
 function PlanetInfo() {
   const params = useParams();
-  const filtered = planets.filter((planet) => planet.name === params.name);
+  const filtered = planets?.filter((planet) => planet.name === params.name);
 
   const filteredPlanet = filtered[0];
 
