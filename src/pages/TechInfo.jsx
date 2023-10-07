@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { getTechData } from "../../firebase";
+import { useEffect, useState } from "react";
 
 import launchmobile from "../assets/technology/image-launch-vehicle-landscape.jpg";
 import launchdesktop from "../assets/technology/image-launch-vehicle-portrait.jpg";
@@ -23,75 +24,48 @@ const imagePathDesktop = {
 
 //const techData = await getTechData();
 
-/*let techData;
-getTechData().then((result) => {
-  techData = result
-}).catch((error) => {
-  alert(error.message)
-})
-*/
-
-async function TechInfo() {
-  const techData = await getTechData();
+function TechInfo() {
   const params = useParams();
-
-  const filteredTech = techData.filter((tech) => tech.id === params.id);
-
-  const technology = filteredTech[0];
-
   const isMobile = useMediaQuery({ maxWidth: 1007 });
-  return (
-    <div className="technology">
-      <div className="content technology-content">
-        <div className="tech-body-container">
-          <div className="tech-img-container">
-            {isMobile ? (
-              <img src={imagePathMobile[params.id]} alt="Mobile Image" />
-            ) : (
-              <img
-                src={imagePathDesktop[params.id]}
-                alt="Desktop Image"
-                className="desktop-img"
-              />
-            )}
-          </div>
 
-          <div className="technology-description">
-            <h5 className="terminology">The terminology...</h5>
-            <h2 className="tech-type">{technology.name}</h2>
-            <p className="tech-manual">{technology.description}</p>
+  const [techData, setTechData] = useState()
+
+  useEffect(() => {
+    getTechData().then(data => setTechData(data))
+  }, [])
+
+
+    const filteredTech = techData?.filter((tech) => tech.id === params.id);
+
+    const technology = filteredTech?.[0];
+
+    return (
+      <div className="technology">
+        <div className="content technology-content">
+          <div className="tech-body-container">
+            <div className="tech-img-container">
+              {isMobile ? (
+                <img src={imagePathMobile[params.id]} alt="Mobile Image" />
+              ) : (
+                <img
+                  src={imagePathDesktop[params.id]}
+                  alt="Desktop Image"
+                  className="desktop-img"
+                />
+              )}
+            </div>
+
+            <div className="technology-description">
+              <h5 className="terminology">The terminology...</h5>
+              <h2 className="tech-type">{technology?.name}</h2>
+              <p className="tech-manual">{technology?.description}</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
-export default TechInfo; /*className="tech-body-container"
+export default TechInfo; 
 
-/*<div className="technology">
-      <div className="content technology-content"> 
-        <div className="tech-body-container"> {/*className="tech-content-container" 
-        <div className="tech-img-container">
-        {isMobile ? (
-            <img src={imagePathMobile[params.id]} alt="Mobile Image" />
-          ) : (
-            <img
-              src={imagePathDesktop[params.id]}
-              alt="Desktop Image"
-              className="desktop-img"
-            />
-          )}
-        </div>
 
-       
-
-        <div className="technology-description">
-          <h5 className="terminology">The terminology...</h5>
-          <h2 className="tech-type">{technology.name}</h2>
-          <p className="tech-manual">{technology.description}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-); */

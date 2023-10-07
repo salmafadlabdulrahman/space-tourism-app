@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { getPlanetsData } from "../../firebase";
+import { useEffect, useState } from "react";
 
 import moonImage from "../assets/destinations/image-moon.png";
 import marsImage from "../assets/destinations/image-mars.png";
@@ -16,20 +17,16 @@ const imagePathMap = {
 
 //const planets = await getPlanetsData();
 
-/*let planets;
-getPlanetsData().then((result) => {
-  planets = result
-}).catch((error) => {
-  alert(error.message)
-})*/
-
-async function PlanetInfo() {
-  const planets = await getPlanetsData();
+function PlanetInfo() {
   const params = useParams();
+  const [planetInfo, setPlanetInfo] = useState()
 
-  const filtered = planets.filter((planet) => planet.name === params.name);
+  useEffect(() => {
+    getPlanetsData().then(data => setPlanetInfo(data))
+  }, [])
 
-  const filteredPlanet = filtered[0];
+  const filtered = planetInfo?.filter((planet) => planet.name === params.name);
+  const filteredPlanet = filtered?.[0];
 
   return (
     <div className="destination-container">

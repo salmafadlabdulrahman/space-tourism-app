@@ -13,13 +13,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-//the planets collection
 const planetsCollectionRef = collection(db, "planets")
 
-//the planets collection
 const crewCollectionRef = collection(db, "crew")
 
-//the planets collection
 const techCollectionRef = collection(db, "technology")
 
 
@@ -39,7 +36,7 @@ export async function getCrewData() {
     ...doc.data()
   }))
 
-  
+
   return dataArr
 }
 
