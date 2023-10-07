@@ -32,7 +32,7 @@ getTechData().then((result) => {
 
 function TechInfo() {
   const params = useParams();
-  const filteredTech = techData.filter((tech) => tech.id === params.id);
+  const filteredTech = techData?.filter((tech) => tech.id === params.id);
 
   const technology = filteredTech[0];
 
