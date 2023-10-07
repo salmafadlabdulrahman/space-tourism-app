@@ -1,8 +1,25 @@
-# React + Vite
+# Space Tourism App in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## The Project:
+This project is a challenge from the frontend mentor website, it's about building a space tourism web app, that consists of four main routes
+1. Home Page
+2. Destination page, that consists of four sub pages (Moon, Mars, Europa, Titan)
+3. Crew page, that consists of four sub pages about crew members
+4. Technology page
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built with:
+- React
+- React Router
+- JS
+- Firebase
+- CSS
+
+
+## Links:
+### Live website link: https://adaptable-luck-scribe.glitch.me
+### Repo Link: https://github.com/salmafadlabdulrahman/space-tourism-app/tree/main
+
+
+## ScreenShots:
+
