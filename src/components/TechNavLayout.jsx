@@ -1,9 +1,17 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { getTechData } from "../../firebase";
 
-const techData = await getTechData();
+//const techData = await getTechData();
 
-function TechNavLayout() {
+/*let techData;
+getTechData().then((result) => {
+  techData = result
+}).catch((error) => {
+  alert(error.message)
+})*/
+
+async function TechNavLayout() {
+  const techData = await getTechData();
   const techResult = techData.map((tech) => (
     <>
       <li className="tech-link">

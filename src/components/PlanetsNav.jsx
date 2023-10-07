@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { getPlanetsData } from "../../firebase";
 
-const planets = await getPlanetsData();
+//const planets = await getPlanetsData();
+/*let planets;
+getPlanetsData().then((result) => {
+  planets = result
+}).catch((error) => {
+  alert(error.message)
+})*/
 
-function PlanetsNav() {
+async function PlanetsNav() {
+  const planets = await getPlanetsData();
   const result = planets.map((planet) => (
     <li key={planet.name}>
       <NavLink

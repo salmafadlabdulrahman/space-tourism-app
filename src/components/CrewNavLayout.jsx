@@ -1,9 +1,18 @@
 import { getCrewData } from "../../firebase";
 import { NavLink, Outlet } from "react-router-dom";
 
-const crewData = await getCrewData();
+//const crewData = await getCrewData();
 
-function CrewNavLayout() {
+/*let crewData;
+getCrewData().then((result) => {
+  crewData = result
+}).catch((error) => {
+  alert(error.message)
+})*/
+
+async function CrewNavLayout() {
+  const crewData = await getCrewData();
+
   return (
     <div>
       <div className="content crew-content">
@@ -13,7 +22,7 @@ function CrewNavLayout() {
         </h2>
         <div className="crew-nav">
           <ul>
-            {crewData.map((crew) => (
+            {crewData?.map((crew) => (
               <NavLink key={crew.id} to={`./crew/${crew.id}`}></NavLink>
             ))}
           </ul>

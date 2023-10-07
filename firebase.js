@@ -38,6 +38,8 @@ export async function getCrewData() {
   const dataArr = querySnapshot.docs.map(doc => ({
     ...doc.data()
   }))
+
+  
   return dataArr
 }
 

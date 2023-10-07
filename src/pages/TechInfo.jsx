@@ -23,16 +23,19 @@ const imagePathDesktop = {
 
 //const techData = await getTechData();
 
-let techData;
+/*let techData;
 getTechData().then((result) => {
   techData = result
 }).catch((error) => {
   alert(error.message)
 })
+*/
 
-function TechInfo() {
+async function TechInfo() {
+  const techData = await getTechData();
   const params = useParams();
-  const filteredTech = techData?.filter((tech) => tech.id === params.id);
+
+  const filteredTech = techData.filter((tech) => tech.id === params.id);
 
   const technology = filteredTech[0];
 
