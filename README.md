@@ -17,7 +17,7 @@ This project is a challenge from the frontend mentor website, it's about buildin
 
 
 ## Links:
-### Live website link: https://adaptable-luck-scribe.glitch.me
+### Live website link: [https://adaptable-luck-scribe.glitch.me](https://incandescent-peony-5dd4c1.netlify.app/)
 ### Repo Link: https://github.com/salmafadlabdulrahman/space-tourism-app/tree/main
 
 
